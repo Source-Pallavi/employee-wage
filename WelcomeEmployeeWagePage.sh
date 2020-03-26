@@ -62,3 +62,28 @@ esac
 salary=$(($employee_Hrs*$employee_Rate_Per_Hr)) 
 
 echo "Salary Of Employee= $salary"  
+
+#=================================================================================================
+# Calculating Wage for a month
+
+isPartTime=1;
+isFullTime=2;
+totalSalary=0;
+employee_Rate_Per_Hr=20;
+numWorkingDays=20;
+
+for(( day=1; day<=$numWorkingDays; day++ ))
+do
+   employee_Check=$((RANDOM%3))
+        case $employee_Check in
+            $isFullTime )
+              employee_Hrs=8;;
+            $isPartTime )
+              employee_Hrs=4;;
+            * )
+              employee_Hrs=0;;
+        esac
+      salary=$(( $employee_Hrs*$employeeRatePerHr )) 
+      totalSalary=$(( $totalSalary+$salary ))
+done
+echo  "Salary of an Employee= $totalSalary"
