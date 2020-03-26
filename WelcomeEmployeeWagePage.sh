@@ -2,6 +2,7 @@
 
 echo "Welcome to the Employee Wage Computation"
 
+#=====================================================================================================
 #user case added to check employee persent or not
 
 isPersent = 1
@@ -14,6 +15,7 @@ else
     echo "Employee is absent"
 fi
 
+#==========================================================================================
 # to calculate total wage of employee
 
 if [ $isPresent -eq $randomCheck ]
@@ -39,3 +41,24 @@ else
       salary=0;
 fi
 echo "Daily Wage of an Employee= " $salary
+
+
+# ========================================================================================================
+# using case solved previous problem
+
+isPartTime=1
+isFullTime=2
+employee_Rate_Per_Hr=20
+employee_Check=$((RANDOM%3+1))
+
+case $employee_Check in
+          $isFullTime )
+              employee_Hrs=8;;
+          $isPartTime )
+              employee_Hrs=4;;
+          * )
+              employee_Hrs=0;;
+esac
+salary=$(($employee_Hrs*$employee_Rate_Per_Hr)) 
+
+echo "Salary Of Employee= $salary"  
