@@ -87,3 +87,34 @@ do
       totalSalary=$(( $totalSalary+$salary ))
 done
 echo  "Salary of an Employee= $totalSalary"
+
+#=================================================================================================
+#Calculate wages till a condition of total working hours or days is reached 
+#for a month
+
+IS_PART_TIME=1;
+IS_FULL_TIME=2;
+MAX_HRS_IN_MONTH=10;
+EMP_RATE_PER_HR=20;
+TOTAL_WORKING_DAYS=20;
+
+total_Employee_Hrs=0;
+totalWorkingDays=0;
+
+while [[ $total_Employee_Hrs -lt $MAX_HRS_IN_MONTH && $totalWorkingDays -lt $TOTAL_WORKING_DAYS ]] 
+do
+(( totalWorkingDays++ ))
+employee_Check=$((RANDOM%3))
+case $empCheck in
+    $IS_FULL_TIME )
+        employee_Hrs=8;;    
+    $IS_PART_TIME )
+        employee_Hrs=4;;
+    * )
+        employee_Hrs=0;;
+esac
+total_Employee_Hrs=$(( $total_Employee_Hrs+$employee_Hrs ))
+done
+totalSalary=`expr $total_Employee_Hrs \* $EMP_RATE_PER_HR`
+
+echo "salary of an Employee= $totalSalary"
