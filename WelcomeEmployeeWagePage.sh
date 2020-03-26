@@ -25,3 +25,17 @@ then
       salary=0;
 fi
 echo "Daily Wage of an Employee= " $salary
+
+
+#===================================================================================================
+#part time employee & wage
+
+if [ $isPresent -eq $randomCheck ]
+then 
+      employee_Rate_Per_Hr=20
+      employee_Hrs=4;
+      salary=$(( $employee_Hrs*$employee_Rate_Per_Hr )) 
+else
+      salary=0;
+fi
+echo "Daily Wage of an Employee= " $salary
